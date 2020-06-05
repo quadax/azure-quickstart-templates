@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {        
         "publisherEmail": {
-            "value": "email@example.com"
+            "value": "email@quadax.com"
         },
         "publisherName": {
-            "value": "templateTest"
+            "value": "Mike R"
         }
     }
 }
