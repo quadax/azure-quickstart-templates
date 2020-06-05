@@ -4,7 +4,10 @@
   "parameters": {
     "name": {
             "type": "string",
-      "value": "quadaxapi"
+      "value": "quadaxapi",
+      "metadata": {
+        "description": "The name of the instance. Also will be the hostname of the service."
+      }
      },
     "publisherEmail": {
       "type": "string",
@@ -34,6 +37,10 @@
     },
     "capacity": {
       "type": "int",
+      "allowedValues": [
+        1,
+        2
+      ],
       "defaultValue": 1,
       "metadata": {
         "description": "The instance size of this API Management service."
@@ -53,7 +60,7 @@
   "resources": [
     {
       "apiVersion": "2019-01-01",
-      "name": "quadaxapi",
+      "name": "[parameters('name')]",
       "type": "Microsoft.ApiManagement/service",
       "location": "[parameters('location')]",
       "tags": {},
@@ -63,7 +70,8 @@
       },
       "properties": {
         "publisherEmail": "[parameters('publisherEmail')]",
-        "publisherName": "[parameters('publisherName')]"
+        "publisherName": "[parameters('publisherName')]",
+        "name": "[parameters('name')]"
       },
       "identity": {
         "type": "SystemAssigned"
