@@ -4,7 +4,7 @@
   "parameters": {
     "name": {
             "type": "string",
-      "value": "quadaxapi",
+      "defaultValue": "quadaxapi",
       "metadata": {
         "description": "The name of the instance. Also will be the hostname of the service."
       }
