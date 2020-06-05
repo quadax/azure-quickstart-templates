@@ -2,6 +2,10 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "name": {
+            "type": "string",
+      "value": "quadaxapi"
+     },
     "publisherEmail": {
       "type": "string",
       "minLength": 1,
@@ -16,13 +20,11 @@
         "description": "The name of the owner of the service"
       }
     },
-    "sku": {
+    "tier": {
       "type": "string",
       "allowedValues": [
         "Basic",
-        "Consumption",
         "Developer",
-        "Standard",
         "Premium"
       ],
       "defaultValue": "Developer",
@@ -30,7 +32,7 @@
         "description": "The pricing tier of this API Management service"
       }
     },
-    "skuCount": {
+    "capacity": {
       "type": "int",
       "defaultValue": 1,
       "metadata": {
@@ -39,9 +41,9 @@
     },
     "location": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
+      "defaultValue": "East US 2",
       "metadata": {
-        "description": "Location for all resources."
+        "description": "Location for resource."
       }
     }
   },
@@ -50,14 +52,14 @@
   },
   "resources": [
     {
-      "apiVersion": "2018-06-01-preview",
-      "name": "[variables('apiManagementServiceName')]",
+      "apiVersion": "2019-01-01",
+      "name": "[parameters('name')]",
       "type": "Microsoft.ApiManagement/service",
       "location": "[parameters('location')]",
       "tags": {},
       "sku": {
-        "name": "[parameters('sku')]",
-        "capacity": "[parameters('skuCount')]"
+        "name": "[parameters('tier')]",
+        "capacity": "[parameters('capacity')]"
       },
       "properties": {
         "publisherEmail": "[parameters('publisherEmail')]",
