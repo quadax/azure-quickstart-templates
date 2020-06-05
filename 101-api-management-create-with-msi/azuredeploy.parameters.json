@@ -1,12 +1,24 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {        
+    "parameters": {
+         "name": {
+      "value": "Mike Reams"
+    },
         "publisherEmail": {
             "value": "email@quadax.com"
         },
         "publisherName": {
             "value": "Mike R"
-        }
+        },
+        "tier": {
+      "value": "Developer"
+    },
+    "capacity": {
+      "value": 1
+    },
+        "location": {
+      "value": "East US 2"
+    }
     }
 }
