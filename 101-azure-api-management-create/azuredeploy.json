@@ -4,6 +4,7 @@
   "parameters": {
     "publisherEmail": {
       "type": "string",
+      "defaultValue": "email@quadax.com",
       "minLength": 1,
       "metadata": {
         "description": "The email address of the owner of the service"
